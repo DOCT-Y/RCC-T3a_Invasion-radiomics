@@ -1,0 +1,64 @@
+# Segment-based feature extractION parameters
+# Extracted using Python version: 3.7.16
+# Extracted using PyRadiomics version: 3.0.1
+# load this file using radiomics.featureextractor.RadiomicsFeatureExtractor(paramFilepath)
+# code adapted from: https://github.com/AIM-Harvard/pyradiomics/blob/master/examples/exampleSettings/exampleCT.yaml
+
+imageType:
+  Original: {}
+  LoG:
+    sigma: [1.0, 2.0, 3.0]
+  Wavelet: {}
+  Square: {}
+  SquareRoot: {}
+  Logarithm: {}
+  Exponential: {}
+
+featureClass:
+  shape:
+  firstorder:
+  glcm:
+    - 'Autocorrelation'
+    - 'JointAverage'
+    - 'ClusterProminence'
+    - 'ClusterShade'
+    - 'ClusterTendency'
+    - 'Contrast'
+    - 'Correlation'
+    - 'DifferenceAverage'
+    - 'DifferenceEntropy'
+    - 'DifferenceVariance'
+    - 'JointEnergy'
+    - 'JointEntropy'
+    - 'Imc1'
+    - 'Imc2'
+    - 'Idm'
+    - 'Idmn'
+    - 'Id'
+    - 'Idn'
+    - 'InverseVariance'
+    - 'MaximumProbability'
+    - 'SumEntropy'
+    - 'SumSquares'
+  glrlm:
+  glszm:
+  gldm:
+  ngtdm:
+
+setting:
+  # speeds up extraction when filters are enabled
+  preCrop: true
+
+  # Resampling:
+  interpolator: 'sitkLinear'
+  resampledPixelSpacing: [0.75, 0.75, 5]
+
+  # ROI validation. The ROI should be a 3D area larger than 10 pixels
+  minimumROIDimensions: 3
+  minimumROISize: 10
+
+  # mute the diagnostic information
+  additionalInfo: false
+
+  # segment value of 1 will be used as the ROI
+  label: 1

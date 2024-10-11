@@ -1,0 +1,12 @@
+{
+    "model":"your\\path\\to\\model.pkl", 
+    "extraction parameter":"your\\path\\to\\extraction.yaml", 
+    "dataset":"your\\path\\to\\dataset", 
+    "image":"image.nii.gz", 
+    "masks": {
+        "tumor":"tumor.nii.gz", 
+        "peritumor":"peritumor.nii.gz"
+    }, 
+    "cutoff":0.3582773836548992, 
+    "output":"your\\path\\to\\results\\"
+}
