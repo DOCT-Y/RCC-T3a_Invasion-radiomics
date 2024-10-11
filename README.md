@@ -9,3 +9,28 @@ This code is licensed under the [Creative Commons Attribution-NonCommercial-NoDe
 ## Introduction
 
 This is the official repository for our recent work: [Insert Research Title]. This repository contains ready-to-use codes for inference of the proposed models.
+
+
+## Key Features
+
+- **Features 1**: detail 1
+- **Features 2**: detail 2
+- **Features 3**: detail 3
+
+## Get Started
+
+### Main Requirements    
+> numpy
+> pandas
+> pyradiomics
+> SimpleITK
+> sklearn
+> tqdm
+
+### Data preparation
+12345
+
+### Config preparation
+12345
+
+### Inference
