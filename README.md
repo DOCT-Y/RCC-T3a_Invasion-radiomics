@@ -20,12 +20,12 @@ This is the official repository for our recent work: [Insert Research Title]. Th
 ## Get Started
 
 ### Main Requirements    
-> numpy
-> pandas
-> pyradiomics
-> SimpleITK
-> sklearn
-> tqdm
+> numpy  
+> pandas  
+> pyradiomics  
+> SimpleITK  
+> sklearn  
+> tqdm  
 
 ### Data preparation
 12345
