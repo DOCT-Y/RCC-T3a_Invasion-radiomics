@@ -14,9 +14,9 @@ This is the official repository for our recent work: [Insert Research Title]. Th
 
 ## Key Features
 
-- **Features 1**: detail 1
-- **Features 2**: detail 2
-- **Features 3**: detail 3
+- **Features 1**: The training dataset contains sufficient patients with renal cell carcinoma (n = 999) and covers a wide spectrum of disease phenotype （common and rare RCC subtypes, all ISUP/fuhrman grades, all pathological T stages）.
+- **Features 2**: The predictive performance of the models were externally evaluated in data from two medical centers and four TCIA datasets.
+- **Features 3**: The morphology model improved the performance of junior radiologists.
 
 ## Get Started
 
@@ -25,7 +25,7 @@ This is the official repository for our recent work: [Insert Research Title]. Th
 > pandas  
 > pyradiomics  
 > SimpleITK  
-> sklearn  
+> scikit-learn  
 > tqdm  
 
 ### Data preparation
