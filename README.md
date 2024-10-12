@@ -29,9 +29,68 @@ This is the official repository for our recent work: [Insert Research Title]. Th
 > tqdm  
 
 ### Data preparation
-12345
-
+NIfTI-formatted image and mask files were used for feature extraction and model prediction. Please organize the image and mask files in the following structure.
+```
+test_data/
+├── Dataset001
+    │── patient_1
+    │    ├── image.nii.gz
+    │    ├── tumor_mask.nii.gz
+    │    └── peritumor_mask.nii.gz
+    │── patient_2
+    │    ├── image.nii.gz
+    │    ├── tumor_mask.nii.gz
+    │    └── peritumor_mask.nii.gz
+    └── patient_n
+         ├── image.nii.gz
+         ├── tumor_mask.nii.gz
+         └── peritumor_mask.nii.gz
+```
 ### Config preparation
-12345
+During inference, the configurations are loaded from a `.json` file. The structure of the file is as follows:
+
+```json
+{
+    "model":"your\\path\\to\\model.pkl", 
+    "extraction parameter":"your\\path\\to\\extraction.yaml", 
+    "dataset":"your\\path\\to\\dataset", 
+    "image":"image.nii.gz", 
+    "masks": {
+        "tumor":"tumor.nii.gz", 
+        "peritumor":"peritumor.nii.gz"
+    }, 
+    "cutoff":0.3582773836548992, 
+    "output":"your\\path\\to\\results\\"
+}
+```
+
+Each of the parameters is explained as follows:
+
+- `model`: The path to the pickle file of trained model.
+- `extraction parameter`: The path to the yaml file of radiomics feature extraction configurations.
+- `dataset`: The path to the dataset folder.
+- `image`: The name of the image file. Both `.nii` and `.nii.gz` are supported.
+- `masks`: The names of the mask files. The key is the prefix added to the feature name during extraction, and the value is the mask file name.
+- `cutoff`: The cutoff value that determines whether a case is classified as T3a invasion positive or negative.
+- `output`: The output folder to hold the output `.csv` file.
 
 ### Inference
+```python
+from inference import ModelInference
+
+if __name__ == '__main__':
+    config_dir = '.\\inference_config.json'
+    model = ModelInference(config_dir)
+    model.predict()
+```
+1. import `ModelInference` class from `inference` module.
+2. initialize an instance of the `ModelInference` class, passing the configuration file path (`inference_config.json`) as an argument.
+3. call the `predict` method of the `ModelInference` class.
+
+## Model Training and validation
+1. use `SignatureExtractor` class in `inference` and `.yaml` configuration file to extract the radiomic features.
+2. merge the tabular radiomics data with `label` column and save it as `.csv` file.
+3. run `train` in `train_validation` module to train the model and save it as `.pkl` file.
+4. run `internal validaion` in `train_validation` module to internal validate the model using nested-cross validation. The outer loop is 200 repeats 5 fold cross validation, and the inner loop is 20 repeats 5 fold cross validation. For a detailed explanation of nested-cross validation, please refer to [A Guide to Cross-Validation for Artificial Intelligence in Medical Imaging](https://doi.org/10.1148/ryai.220232).
+5. run `external_validation` in `train_validation` module to external validate the model in holdout datasets.
+6. during internal validation and external validation, the raw predictions were saved as `.csv` files.
