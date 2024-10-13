@@ -88,7 +88,7 @@ if __name__ == '__main__':
 3. call the `predict` method of the `ModelInference` class.
 
 ## Model Training and validation
-1. use `SignatureExtractor` class in `inference` and `.yaml` configuration file to extract the radiomic features.
+1. use `SignatureExtractor` class in `inference` module and `.yaml` configuration file to extract the radiomic features.
 2. merge the tabular radiomics data with `label` column and save it as `.csv` file.
 3. run `train` in `train_validation` module to train the model and save it as `.pkl` file.
 4. run `internal validaion` in `train_validation` module to internal validate the model using nested-cross validation. The outer loop is 200 repeats 5 fold cross validation, and the inner loop is 20 repeats 5 fold cross validation. For a detailed explanation of nested-cross validation, please refer to [A Guide to Cross-Validation for Artificial Intelligence in Medical Imaging](https://doi.org/10.1148/ryai.220232).
