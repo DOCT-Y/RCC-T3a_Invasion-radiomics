@@ -56,8 +56,8 @@ During inference, the configurations are loaded from a `.json` file. The structu
     "dataset":"your\\path\\to\\dataset", 
     "image":"image.nii.gz", 
     "masks": {
-        "tumor":"tumor.nii.gz", 
-        "peritumor":"peritumor.nii.gz"
+        "tumor":"tumor_mask.nii.gz", 
+        "peritumor":"peritumor_mask.nii.gz"
     }, 
     "cutoff":0.3582773836548992, 
     "output":"your\\path\\to\\results\\"
