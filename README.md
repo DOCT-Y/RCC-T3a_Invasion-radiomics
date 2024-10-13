@@ -9,7 +9,7 @@ This code is licensed under the [Creative Commons Attribution-NonCommercial-NoDe
 
 ## Introduction
 
-This is the official repository for our recent work: [Insert Research Title]. This repository contains ready-to-use codes for inference of the proposed models.
+This is the official repository for our recent work: [CT-based radiomic model for identifying pathological T3a upstaging in renal cell carcinoma: model development and multi-source validation]. This repository contains ready-to-use codes for inference of the proposed models.
 
 
 ## Key Features
